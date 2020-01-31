@@ -1,4 +1,4 @@
-<h2 class="content-block">Display Data</h2>
+<h2 class="content-block">Z-Price Users</h2>
 
 <dx-data-grid class="dx-card wide-card"
     [dataSource]="dataSource"
@@ -7,36 +7,41 @@
     [focusedRowIndex]="0"
     [columnAutoWidth]="true"
     [columnHidingEnabled]="true"
-    keyExpr="login.uuid">
+    keyExpr="login.uuid"
+    [masterDetail]="{ enabled: true, template: 'detail' }">
+    
 
     <dxo-paging [pageSize]="25"></dxo-paging>
+    <dxo-search-panel 
+        [visible]="true" 
+        [width]="240" 
+        placeholder="Search..."></dxo-search-panel>
     <!-- <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager> -->
     <dxo-filter-row [visible]="true"></dxo-filter-row>
-    <dxo-sorting
-        mode="single">
-    </dxo-sorting>
-
-    <!-- <dxi-column
-        caption="Sales Amount"
-        [calculateCellValue]="calculateSalesAmount">
-    </dxi-column> -->
+    <dxo-sorting mode="single"></dxo-sorting>
     <dxi-column
         caption="Picture"
         [width]="290"
-        [hidingPriority]="2">
-        <img src="dataSource.data.thumbnail" alt="123">
-    </dxi-column>
+        [hidingPriority]="2"
+        cellTemplate="cellTemplatePicture"
+        [calculateCellValue]="getPicture"
+        [allowFiltering]="false"
+        [allowSorting]="false"></dxi-column>
     <dxi-column
         caption="Name"
         [width]="290"
-        [hidingPriority]="2"
-        [calculateCellValue]="calculateName">
+        [hidingPriority]="2" 
+        [calculateCellValue]="calculateName"
+        [allowSearch]="true"
+        [allowSorting]="true">
     </dxi-column>
     <dxi-column
         caption="Gender"
         [width]="290"
         [hidingPriority]="2"
-        [calculateCellValue]="gender">
+        [calculateCellValue]="gender"
+        [allowSorting]="true"
+        [allowSearch]="true">
     </dxi-column>
     <dxi-column
         caption="Phone"
@@ -44,53 +49,17 @@
         [hidingPriority]="2"
         [calculateCellValue]="phoneNumber">
     </dxi-column>
-    <!-- <dxi-column
-        dataField="Task_Subject"
-        [width]="190"
-        caption="Subject"
-        [hidingPriority]="8">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Status"
-        caption="Status"
-        [hidingPriority]="6">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Priority"
-        caption="Priority"
-        [hidingPriority]="5">
-        <dxo-lookup
-            [dataSource]="priority"
-            valueExpr="value"
-            displayExpr="name">
-        </dxo-lookup>
-    </dxi-column>
-    <dxi-column
-        dataField="ResponsibleEmployee.Employee_Full_Name"
-        caption="Assigned To"
-        [allowSorting]="false"
-        [hidingPriority]="7">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Start_Date"
-        caption="Start Date"
-        dataType="date"
-        [hidingPriority]="3">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Due_Date"
-        caption="Due Date"
-        dataType="date"
-        [hidingPriority]="4">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Priority"
-        caption="Priority"
-        [hidingPriority]="1">
-    </dxi-column>
-    <dxi-column
-        dataField="Task_Completion"
-        caption="Completion"
-        [hidingPriority]="0">
-    </dxi-column> -->
+    <div *dxTemplate="let data of 'cellTemplatePicture'">
+        <img [src]="data.value" alt="123"/>
+    </div>
+    <div *dxTemplate="let employee of 'detail'">
+        <dx-data-grid 
+            [dataSource]="dataSource"
+            [columnAutoWidth]="true"
+            [showBorders]="true">
+                <dxi-column caption="City" [calculateCellValue]="city"></dxi-column>
+                <dxi-column caption="Street" [calculateCellValue]="calculateAddress"></dxi-column>
+                <dxi-column caption="Email" [calculateCellValue]="emailAddress"></dxi-column>
+        </dx-data-grid>
+    </div>
 </dx-data-grid>

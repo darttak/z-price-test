@@ -11,6 +11,7 @@ import CustomStore from 'devextreme/data/custom_store';
 export class DisplayDataComponent {
   dataSource: any;
   priority: any[];
+  positionDisableSorting = false;
 
   constructor(httpClient: HttpClient) {
     this.dataSource = new CustomStore({
@@ -31,7 +32,13 @@ export class DisplayDataComponent {
   gender(rowData){
     return rowData.gender;
   }
-  picture(rowData){
+  city(rowData){
+    return rowData.location.city;
+  }
+  emailAddress(rowData){
+    return rowData.email;
+  }
+  getPicture(rowData) {
     return rowData.picture.thumbnail;
   }
   phoneNumber(rowData){
@@ -39,6 +46,9 @@ export class DisplayDataComponent {
   }
   calculateName(rowData) {
     return rowData.name.first + " " + rowData.name.last;
+}
+calculateAddress(rowData) {
+  return rowData.location.street.number + " " + rowData.location.street.name;
 }
 }
 

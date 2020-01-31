@@ -9443,7 +9443,7 @@
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row > td:not(.dx-focused),
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row > tr > td:not(.dx-focused),
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row .dx-command-edit .dx-link {
-  background-color: #FF5722;
+  background-color: rgb(228, 69, 17);
   color: #fff;
 }
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row > td:not(.dx-focused) .dx-datagrid-group-opened,

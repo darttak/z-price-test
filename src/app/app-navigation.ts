@@ -13,7 +13,7 @@ export const navigation = [
         path: '/profile'
       },
       {
-        text: 'Display Data',
+        text: 'Z-Price Users',
         path: '/display-data'
       }
     ]
