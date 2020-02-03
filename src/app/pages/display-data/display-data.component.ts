@@ -68,9 +68,9 @@ export class DisplayDataComponent {
   }
   calculateName(rowData) {
     return rowData.name.first + " " + rowData.name.last;
-}
-calculateAddress(rowData) {
-  return rowData.location.street.number + " " + rowData.location.street.name;
-}
+  }
+  calculateAddress(rowData) {
+    return rowData.location.street.number + " " + rowData.location.street.name;
+  }
 }
 

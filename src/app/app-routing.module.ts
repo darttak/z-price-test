@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginFormComponent } from './shared/components';
 import { AuthGuardService } from './shared/services';
-import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+// import { HomeComponent } from './pages/home/home.component';
+// import { ProfileComponent } from './pages/profile/profile.component';
 import { DisplayDataComponent } from './pages/display-data/display-data.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { AboutComponent } from './pages/about/about.component';
@@ -17,11 +17,6 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
-  },
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [ AuthGuardService ]
   },
   {
     path: 'home',
@@ -44,6 +39,6 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes), DxDataGridModule, DxFormModule],
   providers: [AuthGuardService],
   exports: [RouterModule],
-  declarations: [HomeComponent, ProfileComponent, DisplayDataComponent]
+  declarations: [DisplayDataComponent]
 })
 export class AppRoutingModule { }
