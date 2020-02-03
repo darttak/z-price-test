@@ -7,5 +7,6 @@ export const navigation = [
   {
     text: 'About',
     path: '/about',
+    icon: 'runner'
   },
 ];
