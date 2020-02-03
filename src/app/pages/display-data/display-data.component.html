@@ -43,13 +43,15 @@
         [hidingPriority]="2"
         [calculateCellValue]="gender"
         [allowSorting]="true"
-        [allowSearch]="true">
+        [allowSearch]="true"
+        [allowFiltering]="true">
     </dxi-column>
     <dxi-column
         caption="Phone"
         [width]="290"
         [hidingPriority]="2"
-        [calculateCellValue]="phoneNumber">
+        [calculateCellValue]="phoneNumber"
+        [allowFiltering]="true">
     </dxi-column>
     <div *dxTemplate="let data of 'cellTemplatePicture'">
         <img [src]="data.value" alt="123"/>
@@ -59,9 +61,9 @@
             [dataSource]="getUser(employee)"
             [columnAutoWidth]="true"
             [showBorders]="true">
-                <dxi-column caption="City" [calculateCellValue]="city"></dxi-column>
-                <dxi-column caption="Street" [calculateCellValue]="calculateAddress"></dxi-column>
-                <dxi-column caption="Email" [calculateCellValue]="emailAddress"></dxi-column>
+                <dxi-column caption="City" [calculateCellValue]="city" [allowFiltering]="true"></dxi-column>
+                <dxi-column caption="Street" [calculateCellValue]="calculateAddress" [allowFiltering]="true"></dxi-column>
+                <dxi-column caption="Email" [calculateCellValue]="emailAddress" [allowFiltering]="true"></dxi-column>
         </dx-data-grid>
     </div>
     
