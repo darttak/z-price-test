@@ -5,7 +5,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SideNavOuterToolbarModule, SideNavInnerToolbarModule, SingleCardModule } from './layouts';
-import { FooterModule, LoginFormModule } from './shared/components';
+import { FooterModule,  } from './shared/components';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { AppRoutingModule } from './app-routing.module';
 import { AboutComponent } from './pages/about/about.component';
@@ -21,7 +21,6 @@ import { AboutComponent } from './pages/about/about.component';
     SideNavInnerToolbarModule,
     SingleCardModule,
     FooterModule,
-    LoginFormModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule

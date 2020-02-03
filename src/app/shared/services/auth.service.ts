@@ -36,8 +36,8 @@ export class AuthGuardService implements CanActivate {
         }
 
         if (!isLoggedIn && !isLoginForm) {
-            this.router.navigate(['/login-form']);
-        }
+          this.router.navigate(['/']);
+      }
 
         return isLoggedIn || isLoginForm;
     }
