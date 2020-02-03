@@ -10,11 +10,6 @@ import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   {
-    path: 'display-data',
-    component: DisplayDataComponent,
-    canActivate: [ AuthGuardService ]
-  },
-  {
     path: 'about',
     component: AboutComponent,
   },
