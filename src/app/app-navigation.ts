@@ -5,17 +5,7 @@ export const navigation = [
     icon: 'home'
   },
   {
-    text: 'Examples',
-    icon: 'folder',
-    items: [
-      {
-        text: 'Profile',
-        path: '/profile'
-      },
-      {
-        text: 'Z-Price Users',
-        path: '/display-data'
-      }
-    ]
-  }
+    text: 'About',
+    path: '/about',
+  },
 ];

@@ -2,6 +2,7 @@
 
 <dx-data-grid class="dx-card wide-card"
     [dataSource]="dataSource"
+    [dataSource]="getUser(employee)"
     [showBorders]="false"
     [focusedRowEnabled]="true"
     [focusedRowIndex]="0"
@@ -12,6 +13,7 @@
     
 
     <dxo-paging [pageSize]="25"></dxo-paging>
+    
     <dxo-search-panel 
         [visible]="true" 
         [width]="240" 
@@ -54,7 +56,7 @@
     </div>
     <div *dxTemplate="let employee of 'detail'">
         <dx-data-grid 
-            [dataSource]="dataSource"
+            [dataSource]="getUser(employee)"
             [columnAutoWidth]="true"
             [showBorders]="true">
                 <dxi-column caption="City" [calculateCellValue]="city"></dxi-column>
@@ -62,4 +64,5 @@
                 <dxi-column caption="Email" [calculateCellValue]="emailAddress"></dxi-column>
         </dx-data-grid>
     </div>
+    
 </dx-data-grid>

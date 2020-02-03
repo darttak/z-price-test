@@ -3,6 +3,7 @@ import 'devextreme/data/odata/store';
 import ArrayStore from "devextreme/data/array_store";
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import CustomStore from 'devextreme/data/custom_store';
+import DataSource from 'devextreme/data/data_source';
 
 @Component({
   templateUrl: 'display-data.component.html'
@@ -11,9 +12,11 @@ import CustomStore from 'devextreme/data/custom_store';
 export class DisplayDataComponent {
   dataSource: any;
   priority: any[];
+  usersDataSourceStorage: any;
   positionDisableSorting = false;
 
   constructor(httpClient: HttpClient) {
+    this.usersDataSourceStorage = [];
     this.dataSource = new CustomStore({
       key: "login.uuid",
       load: function (loadOptions: any) {
@@ -29,6 +32,25 @@ export class DisplayDataComponent {
       }
   });
   }
+  getUser(data) {
+    let key = data.key;
+    
+    let item = this.usersDataSourceStorage.find((i) => i.key === key);
+          if (!item) {
+              item = {
+                  key: key,
+                  dataSourceInstance: new DataSource({
+                      store: new ArrayStore({
+                          data: [data.data],
+                          key: "login.uuid"
+                      }),
+                      filter: ["login.uuid", "=", key]
+                  })
+              };
+              this.usersDataSourceStorage.push(item)
+          }
+          return item.dataSourceInstance;
+  }  
   gender(rowData){
     return rowData.gender;
   }
